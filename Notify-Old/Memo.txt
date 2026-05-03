@@ -1,0 +1,7 @@
+        [JsonObject(ItemRequired = Required.Always)]
+        private struct CommandeTransmise
+        {
+            public OrderStatus Status;
+            public string Titre;
+            public string Detail;
+        }

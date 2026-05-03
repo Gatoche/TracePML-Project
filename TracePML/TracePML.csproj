@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Company>wipiSoft</Company>
+    <AssemblyName>TracePML</AssemblyName>
+    <RootNamespace>TracePML</RootNamespace>
+    <Version>1.0.0</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\tracepml.ico</ApplicationIcon>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\tracepml.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\_libs\WpsXamlAdjust.cs" Link="Helpers\WpsXamlAdjust.cs" />
+    <Compile Include="..\..\..\_libs\WpsDebugSender.cs" Link="Helpers\WpsDebugSender.cs" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,34 @@
+# Build output
+bin/
+obj/
+*.user
+*.suo
+
+# IDE
+.vs/
+.idea/
+.vscode/
+.claude/
+
+# Backup files
+*.bak
+*.old
+
+# Delphi (gTracePML-Old)
+__history/
+__recovery/
+*.dcu
+*.local
+*.identcache
+
+# Notify-Old
+*.csproj.user
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs locaux
+*.log
+!Notify-Old/Memo.txt
+!gTracePML-Old/Memo*.txt

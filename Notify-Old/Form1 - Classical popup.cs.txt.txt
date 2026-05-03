@@ -1,0 +1,56 @@
+namespace Notify
+{
+    public partial class Form1 : Form
+    {
+        int toastX, toastY;
+        int ScreenWidth = Screen.PrimaryScreen.WorkingArea.Width;
+        int ScreenHeight = Screen.PrimaryScreen.WorkingArea.Height;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void tmrShow_Tick(object sender, EventArgs e)
+        {
+            toastY -= 10;
+            this.Location = new Point(toastX, toastY);
+            if (toastY <= ScreenHeight - this.Height - 5)
+            {
+                tmrShow.Stop();
+                tmrHide.Start();
+            }
+        }
+        int y = 100;
+
+        private void tmrHide_Tick(object sender, EventArgs e)
+        {
+            y--;
+            if (y <= 0)
+            {
+                toastY += 1;
+                this.Location = new Point(toastX, toastY += 10);
+                if (toastY > ScreenHeight - this.Height + 100)
+                {
+                    tmrHide.Stop();
+                    y = 100;
+                    this.Close();
+                }
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Position();
+        }
+
+        private void Position()
+        {
+
+            toastX = ScreenWidth - this.Width - 5;
+            toastY = ScreenHeight - this.Height + 100;
+
+            this.Location = new Point(toastX, toastY);
+        }
+
+    }
+}

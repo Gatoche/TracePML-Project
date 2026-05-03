@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1200"
+   height="120"
+   viewBox="0 0 317.49999 31.75"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="Notify_v3.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.74486711"
+     inkscape:cx="418.86666"
+     inkscape:cy="132.90961"
+     inkscape:window-width="1496"
+     inkscape:window-height="847"
+     inkscape:window-x="7"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     showgrid="false" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#44aa00;stroke-width:0.264583"
+       id="background"
+       width="317.5"
+       height="31.75"
+       x="0"
+       y="0"
+       inkscape:label="Background" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.17222px;font-family:Arial;-inkscape-font-specification:'Arial, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke-width:0.264583"
+       x="52.623642"
+       y="13.979349"
+       id="text2"
+       inkscape:label="Title"><tspan
+         sodipodi:role="line"
+         id="title"
+         x="52.623642"
+         y="13.979349">Titre</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke-width:0.264583"
+       x="52.98848"
+       y="24.132029"
+       id="text2-2"
+       inkscape:label="Detail"><tspan
+         sodipodi:role="line"
+         id="detail"
+         x="52.98848"
+         y="24.132029">Détail</tspan></text>
+    <g
+       id="g4"
+       transform="translate(-4.7625002)"
+       inkscape:label="Icon&amp;App">
+      <g
+         id="g2"
+         transform="translate(-3.4827931,0.55607916)">
+        <rect
+           style="display:inline;fill:#ffffff;stroke-width:0.329454"
+           id="rect2"
+           width="15.875"
+           height="15.875"
+           x="25.798967"
+           y="3.8640501"
+           rx="3.175"
+           ry="3.175" />
+        <g
+           id="g14"
+           transform="matrix(0.02195213,0,0,0.02221431,24.986754,7.7997117)">
+          <path
+             class="st1"
+             d="m 353.8,312.2 c -12.8,24.2 -32.9,39.3 -59.2,45.5 -21.7,5.1 -43.1,3 -62.9,-7.9 -21.1,-11.7 -36.6,-28.7 -45.2,-51.4 -11.3,-29.7 -22.4,-59.6 -33.3,-89.4 -9.8,-27 -19.4,-54.1 -29,-81.1 -5.9,-16.6 -11.9,-33.2 -17.5,-49.9 -5.2,-15.7 -0.8,-30.4 7,-43.8 18.6,-31.7 55.4,-35.8 83.6,-21.9 14.1,7 23.1,19.2 28.4,34.2 8.6,24 17.3,48 26,72 7,19.3 14,38.7 21.1,58 0.2,1.5 0.3,3.1 0.8,4.6 5,14.1 9.8,28.3 15.2,42.3 6.8,17.6 12.7,35.7 21.3,52.4 9.1,17.6 24.7,29.5 43.7,36.4"
+             id="path11"
+             style="fill:#f08b1e" />
+          <path
+             class="st0"
+             d="m 606.8,307.1 c -1.8,-0.4 -3.8,-0.4 -5.4,-1.2 -23.1,-10.6 -39.9,-27.1 -48.5,-51.6 -8.2,-23.5 -17,-46.7 -25.3,-70.1 -1.3,-3.7 -1.9,-7.7 -2.8,-11.5 16.3,-44.4 31.5,-89.3 49.1,-133.1 12.2,-30.3 42.9,-45.9 74.5,-37.3 25.7,7 45,29.5 44.3,57.9 -0.2,10.2 -2,19.9 -5.5,29.3 -11.6,31.7 -23.3,63.3 -34.8,95 -13.5,37 -26.8,74.2 -40.3,111.2 -1.4,4 -3.5,7.6 -5.3,11.4"
+             id="path12"
+             style="fill:#5a3c8d" />
+          <path
+             class="st2"
+             d="m 353.8,312.2 c -19,-6.9 -34.6,-18.8 -43.7,-36.6 -8.6,-16.7 -14.5,-34.8 -21.3,-52.4 -5.4,-14 -10.2,-28.2 -15.2,-42.3 -0.5,-1.4 -0.5,-3 -0.8,-4.6 4.7,-11.7 9.6,-23.3 14,-35.1 8.8,-23.7 17.2,-47.6 25.9,-71.3 1.5,-4.2 4,-8 6,-12 25.9,10.8 43.4,29.4 52.7,55.9 4.1,11.6 8.3,23.3 12.7,34.8 5.1,13.1 10.5,26 15.8,39.1 0.6,1.5 0.7,3.1 1,4.7 -1.9,4.6 -3.8,9.2 -5.6,13.9 -12.3,32 -24.4,64.1 -36.7,96.1 -1.3,3.3 -3.2,6.5 -4.8,9.8"
+             id="path13"
+             style="fill:#ea532d" />
+          <path
+             class="st3"
+             d="m 606.8,307.1 c -3.9,12.4 -12.5,21.7 -22.5,29.1 -12.1,8.9 -25.5,15.9 -40.7,18.9 -44.2,9 -87.8,-14.5 -103.8,-56.8 -13.3,-35.2 -25.9,-70.6 -38.9,-106 -0.3,-1.5 -0.4,-3.2 -1,-4.7 -5.2,-13 -10.7,-26 -15.8,-39.1 C 379.6,137 375.5,125.4 371.4,113.7 362.1,87.3 344.6,68.6 318.7,57.8 334.2,29 358.2,12.9 390.8,9.9 c 35.1,-3.2 63.6,9.4 84.1,38 6.4,8.9 10.6,19.5 14.5,29.8 11.2,29.6 21.8,59.5 32.6,89.3 0.7,1.9 1.9,3.7 2.8,5.5 0.9,3.8 1.4,7.8 2.8,11.5 8.4,23.4 17.2,46.7 25.3,70.1 8.5,24.5 25.3,41 48.5,51.6 1.7,1 3.6,1 5.4,1.4"
+             id="path14"
+             style="fill:#e72a7d" />
+        </g>
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke-width:0.264583"
+         x="14.849964"
+         y="27.510086"
+         id="text5"><tspan
+           sodipodi:role="line"
+           id="application"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+           x="14.849964"
+           y="27.510086">winpharma</tspan></text>
+    </g>
+  </g>
+</svg>

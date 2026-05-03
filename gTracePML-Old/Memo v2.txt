@@ -1,0 +1,108 @@
+
+
+** REP_COMMANDE
+==       3== 10/02/2025 22:44:26.367 0x0BC03808 Response XML-body:
+<?xml version="1.0" encoding="UTF-8"?>
+<CSRP_ENVELOPPE xmlns="urn:x-csrp:fr.csrp.protocole:enveloppe" Id_Logiciel="ALLIANCE" Nature_Action="REP_EMISSION" Usage="P" Version_Logiciel="4.1.7" Version_Protocole="1.0.0.0">
+    <ENTETE>
+        <EMETTEUR Nature="RE" Adresse="222, rue des Caboeufs 92622 GENNEVILLIERS Cedex" Code="11" Id="43"/>
+        <RECEPTEUR Nature="OF" Adresse="32 RUE ALBERT DUPUIS  76000 ROUEN" Id="241240"/>
+        <REF_MESSAGE>1739223866674_MY3JGM</REF_MESSAGE>
+        <EN_REPONSE_A>7E9020A131BC39500000</EN_REPONSE_A>
+        <DATE>2025-02-10T22:44:27</DATE>
+    </ENTETE>
+    <CORPS>
+        <MESSAGE_REPARTITEUR xmlns="urn:x-csrp:fr.csrp.protocole:message">
+            <ENTETE>
+                <EMETTEUR Nature_Partenaire="RE" Code_Societe="11" Id_Societe="43"/>
+                <DESTINATAIRE Nature_Partenaire="OF" Id_Client="241240"/>
+                <DATE>2025-02-10T22:44:26</DATE>
+            </ENTETE>
+            <CORPS>
+                <REP_COMMANDE Devise="EUR" Ref_Cde_Client="167910" Ref_Rep_Repartiteur="298719922">
+                    <INFOS_LIVRAISON>
+                        <LIVREUR Etablissement="043"/>
+                        <TOURNEE Reference="636" Date="2025-02-11"/>
+                    </INFOS_LIVRAISON>
+                    <NORMALE>
+                        <LIGNE_N Num_Ligne_Commande="1" Num_Ligne="1" Quantite_livree="1" Code_Produit="3400935378583" Type_Codification="EAN13">
+                            <PRIX_N Nature="NETHT" Valeur="0.73"/>
+                            <PRIX_N Nature="PHAHT" Valeur="0.77"/>
+                            <PRIX_N Nature="PUBTC" Valeur="1.17"/>
+                        </LIGNE_N>
+                    </NORMALE>
+                </REP_COMMANDE>
+            </CORPS>
+        </MESSAGE_REPARTITEUR>
+    </CORPS>
+</CSRP_ENVELOPPE>
+
+** REP_INFO_PRODUIT
+==      2U== 10/02/2025 22:29:01.681 0x0BB256D0 Caller="TDGetDispoPrice_Old::SendDispo" Response XML-body:
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<CSRP_ENVELOPPE Nature_Action="REP_EMISSION" Version_Protocole="1.0.0.0" Id_Logiciel="CERP-GRP" Usage="P" Version_Logiciel="2.0" xmlns="urn:x-csrp:fr.csrp.protocole:enveloppe">
+    <ENTETE>
+        <EMETTEUR Adresse="1, rue de la Ferme, 76800 Saint-Ã‰tienne-du-Rouvray" Code="59" Id="0044" Nature="RE" />
+        <RECEPTEUR Adresse="32 RUE ALBERT DUPUIS  76000 ROUEN" Code="00" Id="00000352" Nature="OF" />
+        <REF_MESSAGE>250210222902117nGfoC</REF_MESSAGE>
+        <EN_REPONSE_A>7E9020A12E2016300000</EN_REPONSE_A>
+        <DATE>2025-02-10T22:29:02</DATE>
+    </ENTETE>
+    <CORPS>
+        <MESSAGE_REPARTITEUR xmlns="urn:x-csrp:fr.csrp.protocole:message">
+            <ENTETE>
+                <EMETTEUR Nature_Partenaire="RE" Code_Societe="59" Id_Societe="0044" />
+                <DESTINATAIRE Nature_Partenaire="OF" Id_Client="00000352" />
+                <DATE>2025-02-10T22:29:02</DATE>
+            </ENTETE>
+            <CORPS>
+                <REP_INFO_PRODUIT Ref_Demande_Info="7E9020A12E2016300000" Ref_Reponse_Info="638748233421175806" Devise="EUR">
+                    <LIGNE Num_Ligne="00001" Num_Ligne_Demande="0000000001" Type_Codification="EAN13" Code_Produit="3400930256749">
+                        <NON_DISPO Code_Reponse="0001" Additif="PRODUIT INCONNU" />
+                    </LIGNE>
+                </REP_INFO_PRODUIT>
+            </CORPS>
+        </MESSAGE_REPARTITEUR>
+    </CORPS>
+</CSRP_ENVELOPPE>
+
+** FIN_SERVICE
+==       1== 10/02/2025 22:29:01.630 0x0A944CE0 Caller="TDGetDispoPrice_Old::SendDispo" Response XML-body:
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CSRP_ENVELOPPE Version_Protocole="1.0.0.0" Nature_Action="REP_EMISSION" Id_Logiciel="C3ML" Version_Logiciel="1.0" Usage="P" xmlns="urn:x-csrp:fr.csrp.protocole:enveloppe">
+    <ENTETE>
+        <EMETTEUR Nature="RE" Code="20" Id="OCP" Adresse="ZAC DE QUICANGROGNE 27310 BOURG ACHARD"/>
+        <RECEPTEUR Nature="OF" Code="00" Id="7654012893" Adresse="32 RUE ALBERT DUPUIS 76000 ROUEN"/>
+        <REF_MESSAGE>F5610154080695515624</REF_MESSAGE>
+        <EN_REPONSE_A>7E9020A12E2006500000</EN_REPONSE_A>
+        <DATE>2025-02-10T22:29:01</DATE>
+    </ENTETE>
+    <CORPS>
+        <ACTION>FIN_SERVICE</ACTION>
+    </CORPS>
+</CSRP_ENVELOPPE>
+
+** ERREUR
+==       3== 10/02/2025 23:14:00.845 0x0B9EF0D0 Caller="TDGetDispoPrice_Old::SendDispo" Response XML-body:
+<?xml version="1.0" encoding="UTF-8"?>
+<CSRP_ENVELOPPE xmlns="urn:x-csrp:fr.csrp.protocole:enveloppe" Id_Logiciel="ALLIANCE" Nature_Action="REP_EMISSION" Usage="P" Version_Logiciel="4.1.7" Version_Protocole="1.0.0.0">
+    <ENTETE>
+        <EMETTEUR Nature="RE" Adresse="222, rue des Caboeufs 92622 GENNEVILLIERS Cedex" Code="11" Id="43"/>
+        <RECEPTEUR Nature="OF" Adresse="32 RUE ALBERT DUPUIS  76000 ROUEN" Id="241240"/>
+        <REF_MESSAGE>1739225640519_DREBPJ</REF_MESSAGE>
+        <EN_REPONSE_A>7E9020A138AA2C300000</EN_REPONSE_A>
+        <DATE>2025-02-10T23:14:00</DATE>
+    </ENTETE>
+    <CORPS>
+        <MESSAGE_REPARTITEUR xmlns="urn:x-csrp:fr.csrp.protocole:message">
+            <ENTETE>
+                <EMETTEUR Nature_Partenaire="RE" Code_Societe="11" Id_Societe="43"/>
+                <DESTINATAIRE Nature_Partenaire="OF" Id_Client="241240"/>
+                <DATE>2025-02-10T23:14:00</DATE>
+            </ENTETE>
+            <CORPS>
+                <ERREUR Statut="0011" Detail="Etablissement non disponible"/>
+            </CORPS>
+        </MESSAGE_REPARTITEUR>
+    </CORPS>
+</CSRP_ENVELOPPE>

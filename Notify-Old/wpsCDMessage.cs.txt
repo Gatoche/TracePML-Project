@@ -1,0 +1,172 @@
+    protected override void WndProc(ref Message m)
+   {
+       base.WndProc(ref m);
+
+       if (m.Msg == 0x004A) // WM_COPYDATA
+       {
+           string? payload = wpsCopyDataReceiver.GetPayload(ref m);
+           string? guid = wpsCopyDataReceiver.ParseGuid(payload);
+
+           if (guid == wpsApp.UTGuid)
+           {
+               string? data = null;
+               wpsCDMessage cdMessage = wpsCopyDataReceiver.ParseCDM(payload, out data);
+               switch (cdMessage)
+               {
+                   case wpsCDMessage.ServicesInfo:
+                       ServicesJson = data;
+                       if (wpsServices.ServicesJsonChanged(ServicesJson))
+                       {
+                           Viewer.FromJson(ServicesJson, wpsApp.UTGuid);
+                       }
+                       break;
+
+                   //case wpsCDMessage.DoServiceStart:
+                   //    lblMessage.Text = cdMessage.ToString();
+                   //    lblData.Text = data;
+                   //    break;
+
+                   //case wpsCDMessage.Undefined:
+                   //    // Internal error or yet another WM_COPYDATA format message to parse ?
+                   //    lblMessage.Text = cdMessage.ToString();
+                   //    lblData.Text = data;
+                   //    break;
+
+                   default:
+                       // ?
+                       break;
+               }
+           }
+           else
+           {
+               // ?
+           }
+       }
+   }
+
+
+
+
+
+
+
+
+
+
+
+public enum wpsCDMessage
+ {
+     Undefined,          // 
+     Log,                //
+     ServicesInfo,       //
+     ServerInfo,         //
+     ClientsInfo,        //
+     QueryManagerInfo,   // 
+     DoServiceStart,     //
+     DoProcessQuery      //
+ }
+
+ [StructLayout(LayoutKind.Sequential)]
+ public struct COPYDATASTRUCT
+ {
+     public IntPtr dwData;
+     public int cbData;
+     public IntPtr lpData;
+ }
+
+ [JsonObject(ItemRequired = Required.Always)]
+ public struct wpsMessage
+ {
+     public string Msg;
+     public string Data;
+
+     public static string ToJson(string msg, string data)
+     {
+         wpsMessage message;
+         message.Msg = msg;
+         message.Data = data;
+         return JsonConvert.SerializeObject(message) as string;
+     }
+
+     public static wpsMessage FromJson(string text)
+     {
+         return JsonConvert.DeserializeObject<wpsMessage>(text);
+     }
+ }
+
+ public static class wpsCopyDataSender
+ {
+     public static void Send(string guid, wpsCDMessage msg, string data = "", string? customPayload = null, bool showPayload = false)
+     {
+         const UInt32 WM_COPYDATA = 0x004A;
+
+         [DllImport("user32.dll", CharSet = CharSet.Auto)]
+         static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, ref COPYDATASTRUCT lParam);
+
+         var message = new wpsMessage
+         {
+             Msg = msg.ToString(),
+             Data = data
+         };
+
+         string payload = customPayload == null ? guid + JsonConvert.SerializeObject(message) as string : customPayload;
+         int payloadLength = (payload.Length + 1) * 2;
+
+         if (showPayload) MessageBox.Show(payload);
+
+         COPYDATASTRUCT cds;
+         cds.dwData = IntPtr.Zero;
+         cds.cbData = payloadLength;
+         cds.lpData = Marshal.StringToHGlobalUni(payload);
+
+         SendMessage(wpsApp.HWnd, WM_COPYDATA, IntPtr.Zero, ref cds);
+
+         Marshal.FreeHGlobal(cds.lpData);
+     }
+ }
+
+ public static class wpsCopyDataReceiver
+ {
+     public static string? GetPayload(ref Message m)
+     {
+         string? res = null;
+
+         try
+         {
+             COPYDATASTRUCT cds = (COPYDATASTRUCT)m.GetLParam(typeof(COPYDATASTRUCT));
+             res = Marshal.PtrToStringUni(cds.lpData);
+         }
+         catch { }
+
+         return res;
+     }
+
+     public static string? ParseGuid(string payload)
+     {
+         string? res = null;
+
+         try
+         {
+             res = payload.Substring(0, 32);
+         }
+         catch { }
+
+         return res;
+     }
+
+     public static wpsCDMessage ParseCDM(string payload, out string? data)
+     {
+         wpsCDMessage res = wpsCDMessage.Undefined;
+         data = null;
+
+         try
+         {
+             wpsMessage message = JsonConvert.DeserializeObject<wpsMessage>(payload.Substring(32));
+             res = (wpsCDMessage)Enum.Parse(typeof(wpsCDMessage), message.Msg);
+             data = message.Data;
+         }
+         catch { }
+
+         return res;
+     }
+ }

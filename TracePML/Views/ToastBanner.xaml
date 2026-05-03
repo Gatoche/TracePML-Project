@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Class="TracePML.Views.ToastBanner" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border x:Name="BannerBorder" CornerRadius="13" Background="#55D500" Width="600" Height="60" Margin="0,0,0,0" Padding="0,0,0,0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Colonne gauche : icone Winpharma + texte "winpharma" -->
+            <StackPanel x:Name="IconPanel" Grid.Column="0" VerticalAlignment="Center" Margin="4,0,0,0" Width="88">
+                <Border x:Name="IconBorder" Background="White" CornerRadius="6" Width="30" Height="30" Padding="3,3,3,3" Margin="0,5,0,0">
+                    <Viewbox Stretch="Uniform">
+                        <Canvas Width="600" Height="360">
+                            <Path Fill="#f08b1e" Data="M 253.8,312.2 C 241,336.4 220.9,351.5 194.6,357.7 172.9,362.8 151.5,360.7 131.7,349.8 110.6,338.1 95.1,321.1 86.5,298.4 75.2,268.7 64.1,238.8 53.2,209 43.4,182 33.8,154.9 24.2,127.9 18.3,111.3 12.3,94.7 6.7,78 1.5,62.3 5.9,47.6 13.7,34.2 32.3,2.5 69.1,-1.6 97.3,12.3 111.4,19.3 120.4,31.5 125.7,46.5 c 8.6,24 17.3,48 26,72 7,19.3 14,38.7 21.1,58 0.2,1.5 0.3,3.1 0.8,4.6 5,14.1 9.8,28.3 15.2,42.3 6.8,17.6 12.7,35.7 21.3,52.4 9.1,17.6 24.7,29.5 43.7,36.4" />
+                            <Path Fill="#5a3c8d" Data="M 506.8,307.1 C 505,306.7 503,306.7 501.4,305.9 478.3,295.3 461.5,278.8 452.9,254.3 444.7,230.8 435.9,207.6 427.6,184.2 426.3,180.5 425.7,176.5 424.8,172.7 441.1,128.3 456.3,83.4 473.9,39.6 486.1,9.3 516.8,-6.3 548.4,2.3 574.1,9.3 593.4,31.8 592.7,60.2 592.5,70.4 590.7,80.1 587.2,89.5 575.6,121.2 563.9,152.8 552.4,184.5 538.9,221.5 525.6,258.7 512.1,295.7 510.7,299.7 508.6,303.3 506.8,307.1" />
+                            <Path Fill="#ea532d" Data="M 253.8,312.2 C 234.8,305.3 219.2,293.4 210.1,275.6 201.5,258.9 195.6,240.8 188.8,223.2 183.4,209.2 178.6,195 173.6,180.9 173.1,179.5 173.1,177.9 172.8,176.3 177.5,164.6 182.4,153 186.8,141.2 195.6,117.5 204,93.6 212.7,69.9 214.2,65.7 216.7,61.9 218.7,57.9 244.6,68.7 262.1,87.3 271.4,113.8 275.5,125.4 279.7,137.1 284.1,148.6 289.2,161.7 294.6,174.6 299.9,187.7 300.5,189.2 300.6,190.8 300.9,192.4 299,197 297.1,201.6 295.3,206.3 283,238.3 271.9,270.4 258.6,302.4 257.3,305.7 255.4,308.9 253.8,312.2" />
+                            <Path Fill="#e72a7d" Data="M 506.8,307.1 C 502.9,319.5 494.3,328.8 484.3,336.2 472.2,345.1 458.8,352.1 443.6,355.1 399.4,364.1 355.8,340.6 339.8,298.3 326.5,263.1 313.9,227.7 300.9,192.3 300.6,190.8 300.5,189.1 299.9,187.6 294.7,174.6 289.2,161.6 284.1,148.5 279.6,137 275.5,125.4 271.4,113.7 262.1,87.3 244.6,68.6 218.7,57.8 234.2,29 258.2,12.9 290.8,9.9 c 35.1,-3.2 63.6,9.4 84.1,38 6.4,8.9 10.6,19.5 14.5,29.8 11.2,29.6 21.8,59.5 32.6,89.3 0.7,1.9 1.9,3.7 2.8,5.5 0.9,3.8 1.4,7.8 2.8,11.5 8.4,23.4 17.2,46.7 25.3,70.1 8.5,24.5 25.3,41 48.5,51.6 1.7,1 3.6,1 5.4,1.4" />
+                        </Canvas>
+                    </Viewbox>
+                </Border>
+                <TextBlock x:Name="AppText" Text="winpharma" FontFamily="Arial" FontSize="12" HorizontalAlignment="Center" Margin="1,3,0,0" />
+            </StackPanel>
+
+            <!-- Colonne droite : titre + detail -->
+            <StackPanel x:Name="TextPanel" Grid.Column="1" VerticalAlignment="Center" Margin="6,2,0,0">
+                <TextBlock x:Name="TitleText" FontFamily="Arial" FontSize="17.3" FontWeight="Bold" Margin="0,0,0,0" />
+                <TextBlock x:Name="DetailText" FontFamily="Arial" FontSize="14.6" Margin="1,2,0,0" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

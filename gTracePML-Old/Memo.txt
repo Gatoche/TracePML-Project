@@ -1,0 +1,271 @@
+  // if Node.ChildNodes.Count = 1 then
+  // if (Node.ChildNodes[0].NodeName = 'LIGNE')
+  // and Node.ChildNodes[0].HasAttribute('Code_Produit') then
+  // begin
+  // disp := '';
+  // prix := ';';
+  // for childID := 0 to Node.ChildNodes[0].ChildNodes.Count - 1 do
+  // begin
+  // if Node.ChildNodes[0].ChildNodes[childID].NodeName = 'PRIX' then
+  // begin
+  // if Node.ChildNodes[0].ChildNodes[childID].HasAttribute('Nature')
+  // and Node.ChildNodes[0].ChildNodes[childID].HasAttribute('Valeur') then
+  // prix := prix + Node.ChildNodes[0].ChildNodes[childID].Attributes['Nature'] + ':' +
+  // Node.ChildNodes[0].ChildNodes[childID].Attributes['Valeur'] + ';'
+  // end
+  // else
+  // if Node.ChildNodes[0].ChildNodes[childID].NodeName = 'DISPO' then
+  // disp := 'DISPO'
+  // else
+  // if Node.ChildNodes[0].ChildNodes[childID].NodeName = 'NON_DISPO' then
+  // disp := 'NON_DISPO';
+  // end;
+  // if disp <> 'DISPO' then
+  // prix := ';';
+  // res := prov + ';REP_INFO_PRODUIT;' + Node.ChildNodes[0].Attributes['Code_Produit'] + ';' + disp + prix;
+  // Result := disp <> '';
+  // end;
+
+
+// <COMMANDE Ref_Cde_Client="268603341">
+// <NORMALE>
+// <LIGNE_N Num_Ligne="1" Type_Codification="EAN13" Code_Produit="3611610060956" Quantite="3"/>
+// <LIGNE_N Num_Ligne="2" Type_Codification="EAN13" Code_Produit="3611610059103" Quantite="1"/>
+// <LIGNE_N Num_Ligne="3" Type_Codification="EAN13" Code_Produit="3611610061717" Quantite="1"/>
+// <LIGNE_N Num_Ligne="4" Type_Codification="EAN13" Code_Produit="3611610060338" Quantite="1"/>
+// </NORMALE>
+// </COMMANDE>
+// ou
+// <COMMANDE Ref_Cde_Client="167861AA">
+// <SPECIALE Code_Speciale="G01">
+// <LIGNE_S Num_Ligne="1" Type_Codification="EAN13" Code_Produit="3400930271025" Quantite="1"/>
+// </SPECIALE>
+// </COMMANDE>
+
+// <REP_COMMANDE Ref_Cde_Client="167861AA" Ref_Rep_Repartiteur="0173745818" Devise="EUR">
+// <INFOS_LIVRAISON>
+// <LIVREUR/>
+// <TOURNEE Reference="1247" Date="2025-02-10"/>
+// </INFOS_LIVRAISON>
+// <SPECIALE Code_Speciale="G01">
+// <LIGNE_S Num_Ligne="00001" Num_Ligne_Commande="0000000001" Type_Codification="EAN13" Code_Produit="3400930271025" Designation="METHYLPHEN BIO LP 54MG 28CPR" Quantite_livree="00001">
+// <PRIX_S Nature="NETHT" Valeur="00013.910"/>
+// <PRIX_S Nature="PHAHT" Valeur="00016.360"/>
+// <PRIX_S Nature="PUBTC" Valeur="00019.220"/>
+// </LIGNE_S>
+
+// <REP_COMMANDE Ref_Cde_Client="268603443" Ref_Rep_Repartiteur="638749612419897449" Devise="EUR">
+// <NORMALE>
+// <LIGNE_N Num_Ligne="00001" Num_Ligne_Commande="0000000001" Type_Codification="EAN13" Code_Produit="3400933371548" Quantite_livree="00002">
+// <PRIX_N Nature="NETHT" Valeur="00004.004" />
+// <PRIX_N Nature="PHAHT" Valeur="00005.720" />
+// </LIGNE_N>
+// </NORMALE>
+// </REP_COMMANDE>
+
+// <REP_COMMANDE Ref_Cde_Client="167791" Ref_Rep_Repartiteur="0173699707" Devise="EUR">
+// <INFOS_LIVRAISON>
+// <LIVREUR/>
+// <TOURNEE Reference="5247" Date="2025-02-07"/>
+// </INFOS_LIVRAISON>
+// <NORMALE>
+// <LIGNE_N Num_Ligne="00001" Num_Ligne_Commande="0000000001" Type_Codification="EAN13" Code_Produit="3400930230121" Designation="ONTOZRY CPR 200MG BT14" Quantite_livree="00000">
+// <PRIX_N Nature="NETHT" Valeur="00026.350"/>
+// <PRIX_N Nature="PHAHT" Valeur="00026.350"/>
+// <PRIX_N Nature="PUBTC" Valeur="00028.690"/>
+// <INDISPONIBILITE_N Code_Reponse="1865" Additif="SUIT EN INTERNE">
+// <INFOS_DISPO Date="2025-02-08" Heure="04:00" Quantite="00002"/>
+// </INDISPONIBILITE_N>
+// </LIGNE_N>
+// </NORMALE>
+// </REP_COMMANDE>
+
+// <REP_COMMANDE Ref_Cde_Client="168105" Ref_Rep_Repartiteur="0173955068" Devise="EUR">
+// <INFOS_LIVRAISON>
+// <LIVREUR/>
+// <TOURNEE Reference="1120" Date="2025-02-17"/>
+// </INFOS_LIVRAISON>
+// <NORMALE>
+// <LIGNE_N Num_Ligne="00001" Num_Ligne_Commande="0000000001" Type_Codification="EAN13" Code_Produit="3400921762693" Designation="DESLORATADINE ZEN SOL BUV" Quantite_livree="00000">
+// <PRIX_N Nature="NETHT" Valeur="00001.540"/>
+// <PRIX_N Nature="PHAHT" Valeur="00001.710"/>
+// <PRIX_N Nature="PUBTC" Valeur="00002.230"/>
+// <INDISPONIBILITE_N Code_Reponse="0004" Additif="MANQUE FOURNISSEUR"/>
+// </LIGNE_N>
+// <LIGNE_N Num_Ligne="00002" Num_Ligne_Commande="0000000002" Type_Codification="EAN13" Code_Produit="3400922214610" Designation="MONOKETO GE COLLY 0MG25 60DOS" Quantite_livree="00000">
+// <PRIX_N Nature="NETHT" Valeur="00005.530"/>
+// <PRIX_N Nature="PHAHT" Valeur="00005.530"/>
+// <PRIX_N Nature="PUBTC" Valeur="00006.100"/>
+// <INDISPONIBILITE_N Code_Reponse="0004" Additif="MANQUE FOURNISSEUR"/>
+// </LIGNE_N>
+
+// 2
+// 1er chiffre = jour de la semaine et 117 = matin 247=apr�s-midi
+// Reference="1247"    ?
+// Reference="2247"    ?
+// Reference="3247"    ?
+// Reference="4247"    ?
+// Reference="5117"    ?
+// Reference="5247"    ?
+// Reference="6117"    ?
+
+// 3
+// Reference="636"     ?
+
+// <LIVRAISON Ref_Livraison="OP013748853-V1" Date="2025-02-07" Heure="14:00">
+// <LIGNE Num_Ligne="00001" Ref_Cde_Client="167768" Num_Ligne_Client="0000000149" Ref_Cde_Repartiteur="0173691338" Num_Ligne_Cde_Repartiteur="00153" Canal="0003" Type_Codification="EAN13" Code_Produit="5411416055648" Quantite_commandee="00001" Quantite_livree="00000" Quantite_facturee="0000000" Produit_remboursable="false" Prix_public_fixe="false">
+// <NORMALE/>
+// <INDISPONIBILITE Code_Reponse="0003" Additif="5411416055648 remplacé par nouvel art.  541141606">
+// <PRODUIT_REMPLACANT
+
+  // <MESSAGE_REPARTITEUR xmlns="urn:x-csrp:fr.csrp.protocole:message">
+  // <ENTETE>
+  // <EMETTEUR Nature_Partenaire="RE" Code_Societe="18" Id_Societe="0311"/>
+  // <DESTINATAIRE Nature_Partenaire="OF" Id_Client="0119540"/>
+  // <DATE>2025-02-11T13:53:51</DATE>
+  // </ENTETE>
+  // <CORPS>
+  // <REP_INFO_PRODUIT Ref_Reponse_Info="73802722" Ref_Demande_Info="7E9020B0B5621A500000" Devise="EUR">
+  // <LIGNE Num_Ligne="00001" Num_Ligne_Demande="0000000001" Type_Codification="EAN13" Code_Produit="4049500868303" Designation="SLIP MOLIPANTS SOFT EXL BT3">
+  // *  <AUTRE Commentaire="0003REMPLACE PAR LE NOUVEAU">
+  // *   <INFOS_DISPO_AU Date="2025-02-12"/>
+  // * <PRODUIT_REMPLACANT_AU Type_Remplacement="RL" Type_Codification="EAN13" Code_Produit="4052199274713" Designation="SLIP MOLICARE PREM FIX EXL 3">
+  // <PRIX_AU Nature="NETHT" Valeur="00007.240"/>
+  // <PRIX_AU Nature="PHAHT" Valeur="00007.240"/>
+  // </PRODUIT_REMPLACANT_AU>
+  // </AUTRE>
+  // </LIGNE>
+  // </REP_INFO_PRODUIT>
+  // </CORPS>
+  // </MESSAGE_REPARTITEUR>
+
+  // <MESSAGE_REPARTITEUR xmlns="urn:x-csrp:fr.csrp.protocole:message">
+  // <ENTETE>
+  // <EMETTEUR Nature_Partenaire="RE" Code_Societe="11" Id_Societe="43"/>
+  // <DESTINATAIRE Nature_Partenaire="OF" Id_Client="241240"/>
+  // <DATE>2025-02-11T13:53:51</DATE>
+  // </ENTETE>
+  // <CORPS>
+  // <REP_INFO_PRODUIT Devise="EUR" Ref_Demande_Info="7E9020B0B5621AD00000" Ref_Reponse_Info="936392611">
+  // <LIGNE Num_Ligne_Demande="1" Num_Ligne="1" Code_Produit="4049500868303" Type_Codification="EAN13">
+  // * <NON_DISPO Code_Reponse="1112" Additif="Produit remplace">
+  // * <PRODUIT_REMPLACANT_ND Code_Produit="4052199274713" Designation="MOLICAR PREM FIXPANT LONLEG XL3" Type_Codification="EAN13" Type_Remplacement="RL">
+  // <PRIX_ND Nature="NETHT" Valeur="7.24"/>
+  // <PRIX_ND Nature="PHAHT" Valeur="7.24"/>
+  // * </PRODUIT_REMPLACANT_ND>
+  // </NON_DISPO>
+  // </LIGNE>
+  // </REP_INFO_PRODUIT>
+  // </CORPS>
+  // </MESSAGE_REPARTITEUR>
+
+  <BON_LIVRAISON Nature_Document="0003" Ref_Document="BLV25020101027933" Id_Client="011954" Nom_Client="--- PHIE DE FLAUBERT" Adresse_Livraison="32 RUE ALBERT DUPUIS 76000 ROUEN" Devise="EUR" Commentaire="Sous réserve de modification avant expédition">
+                    <INFOS_LIVRAISON>
+                        <LIVREUR Societe="CERP ROUEN" Etablissement="ST ETIENNE DU ROUVRAY"/>
+                        <TOURNEE Reference="01 2 1120 20250210" Date="2025-02-10"/>
+                    </INFOS_LIVRAISON>
+                    <VALOR Ref_Facture="25020101027933" Date="2025-02-10">
+                        <LOGISTIQUE Nb_Bac="001" Nb_Ligne="011" Nb_Unite="0000000014" Poids_brut="0000002450"/>
+                        <CUMUL Montant_HT="00000000129.250" Montant_Total_Taxes="00000000004.210" Montant_TTC="00000000133.460" Reste_A_Payer="00000000133.460">
+                            <TAXE_C Nature="TVA1" Taux="002.100" Montant="00000000002.540" Montant_Assiette_HT="00000000120.900"/>
+                            <TAXE_C Nature="TVA1" Taux="020.000" Montant="00000000001.670" Montant_Assiette_HT="00000000008.350"/>
+                            <NATURE_TAXE Nature="TVA1" Montant="00000000004.210"/>
+                            <PAIEMENT Moyen_Paiement="PRV">
+                                <ECHEANCE Num_Ligne="00001" Date="2025-03-27" Montant="00000000133.460"/>
+                            </PAIEMENT>
+                        </CUMUL>
+                    </VALOR>
+                    <LIVRAISON Ref_Livraison="OP013756903-V1" Date="2025-02-10" Heure="07:10">
+                        <LIGNE Num_Ligne="00001" Ref_Cde_Client="167853" Num_Ligne_Client="0000000104" Ref_Cde_Repartiteur="9002651977"
+                        Num_Ligne_Cde_Repartiteur="00161" Canal="0003" Type_Codification="EAN13" Code_Produit="3400930290422"
+                        Designation="FUROSEMID RAT 500MG 20CPR SEC" Quantite_commandee="00001" Quantite_livree="00001"
+                        Quantite_facturee="0000001" Produit_remboursable="true" Prix_public_fixe="true"
+                        Commentaire="SUITE RUPTURE REMPLACE TEMPORAIREMENT LE 4162662">
+                            <PRIX Nature="PUBTC" Valeur="00007.930"/>
+                            <PRIX Nature="NETHT" Valeur="00006.770"/>
+                            <PRIX Nature="PHAHT" Valeur="00006.770"/>
+                            <TAXE_LV Nature="TVA1" Taux="002.100"/>
+                            <NORMALE/>
+                        </LIGNE>
+
+<CSRP_ENVELOPPE Nature_Action="REP_EMISSION" Version_Protocole="1.0.0.0" Id_Logiciel="CERP-GRP" Usage="P" Version_Logiciel="2.0" xmlns="urn:x-csrp:fr.csrp.protocole:enveloppe">
+    <ENTETE>
+        <EMETTEUR Adresse="1, rue de la Ferme, 76800 Saint-Étienne-du-Rouvray" Code="59" Id="0044" Nature="RE" />
+        <RECEPTEUR Adresse="32 RUE ALBERT DUPUIS  76000 ROUEN" Code="00" Id="00000352" Nature="OF" />
+        <REF_MESSAGE>250207095001629ODzFU</REF_MESSAGE>
+        <EN_REPONSE_A>7E9020707C3A29A00000</EN_REPONSE_A>
+        <DATE>2025-02-07T09:50:01</DATE>
+    </ENTETE>
+    <CORPS>
+        <MESSAGE_REPARTITEUR xmlns="urn:x-csrp:fr.csrp.protocole:message">
+            <ENTETE>
+                <EMETTEUR Nature_Partenaire="RE" Code_Societe="59" Id_Societe="0044" />
+                <DESTINATAIRE Nature_Partenaire="OF" Id_Client="00000352" />
+                <DATE>2025-02-07T09:50:01</DATE>
+            </ENTETE>
+            <CORPS>
+                <REP_INFO_PRODUIT Ref_Demande_Info="7E9020707C3A29A00000" Ref_Reponse_Info="638745186016297752" Devise="EUR">
+                    <LIGNE Num_Ligne="00001" Num_Ligne_Demande="0000000001" Type_Codification="EAN13" Code_Produit="3400938176124">
+                        <NON_DISPO Code_Reponse="0001" Additif="PRODUIT INCONNU" />
+                    </LIGNE>
+                </REP_INFO_PRODUIT>
+            </CORPS>
+        </MESSAGE_REPARTITEUR>
+    </CORPS>
+</CSRP_ENVELOPPE>
+
+<CSRP_ENVELOPPE xmlns="urn:x-csrp:fr.csrp.protocole:enveloppe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version_Protocole="1.0.0.0" Id_Logiciel="PharmaML Edipharm" Version_Logiciel="1.0" Usage="P" Nature_Action="REP_EMISSION">
+    <ENTETE>
+        <EMETTEUR Nature="RE" Id="5600" Code="56" Adresse="RUE"/>
+        <RECEPTEUR Nature="OF" Id="00109327" Code="00" Adresse="32 RUE ALBERT DUPUIS  76000 ROUEN"/>
+        <REF_MESSAGE>5600274364687.1</REF_MESSAGE>
+        <EN_REPONSE_A>7E9020707C3A2A400000</EN_REPONSE_A>
+        <DATE>2025-02-07T09:50:01</DATE>
+    </ENTETE>
+    <CORPS>
+        <MESSAGE_REPARTITEUR xmlns="urn:x-csrp:fr.csrp.protocole:message">
+            <ENTETE>
+                <EMETTEUR Nature_Partenaire="RE" Id_Societe="5600" Code_Societe="56"/>
+                <DESTINATAIRE Nature_Partenaire="OF" Id_Client="00109327"/>
+            </ENTETE>
+            <CORPS>
+                <REP_INFO_PRODUIT Ref_Reponse_Info="5600274364687.1" Ref_Demande_Info="7E9020707C3A2A400000">
+                    <LIGNE Num_Ligne="1" Num_Ligne_Demande="1" Type_Codification="EAN13" Code_Produit="3400938176124">
+                        <NON_DISPO Code_Reponse="0001" Additif="Produit Inconnu"/>
+                    </LIGNE>
+                </REP_INFO_PRODUIT>
+            </CORPS>
+        </MESSAGE_REPARTITEUR>
+    </CORPS>
+</CSRP_ENVELOPPE>
+
+<CSRP_ENVELOPPE xmlns="urn:x-csrp:fr.csrp.protocole:enveloppe" Id_Logiciel="ALLIANCE" Nature_Action="REP_EMISSION" Usage="P" Version_Logiciel="4.1.7" Version_Protocole="1.0.0.0">
+    <ENTETE>
+        <EMETTEUR Nature="RE" Adresse="222, rue des Caboeufs 92622 GENNEVILLIERS Cedex" Code="11" Id="43"/>
+        <RECEPTEUR Nature="OF" Adresse="32 RUE ALBERT DUPUIS  76000 ROUEN" Id="241240"/>
+        <REF_MESSAGE>1738924945487_CAZ7TI</REF_MESSAGE>
+        <EN_REPONSE_A>7E902070969220000000</EN_REPONSE_A>
+        <DATE>2025-02-07T11:42:25</DATE>
+    </ENTETE>
+    <CORPS>
+        <MESSAGE_REPARTITEUR xmlns="urn:x-csrp:fr.csrp.protocole:message">
+            <ENTETE>
+                <EMETTEUR Nature_Partenaire="RE" Code_Societe="11" Id_Societe="43"/>
+                <DESTINATAIRE Nature_Partenaire="OF" Id_Client="241240"/>
+                <DATE>2025-02-07T11:42:25</DATE>
+            </ENTETE>
+            <CORPS>
+                <REP_INFO_PRODUIT Devise="EUR" Ref_Demande_Info="7E902070969220000000" Ref_Reponse_Info="934514207">
+                    <LIGNE Num_Ligne_Demande="1" Num_Ligne="1" Code_Produit="3660396000038" Type_Codification="EAN13">
+                        <PRIX Nature="NETHT" Valeur="20.1"/>
+                        <PRIX Nature="PHAHT" Valeur="20.1"/>
+                      * <AUTRE Commentaire="DCOL nationale, livraison demain matin">
+                            <INFOS_DISPO_AU Quantite="1" Date="2025-02-08"/>
+                        </AUTRE>
+                    </LIGNE>
+                </REP_INFO_PRODUIT>
+            </CORPS>
+        </MESSAGE_REPARTITEUR>
+    </CORPS>
+</CSRP_ENVELOPPE>
+
