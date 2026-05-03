@@ -13,10 +13,23 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>Assets\tracepml.ico</ApplicationIcon>
     <Platforms>AnyCPU;x64</Platforms>
+    <AssemblyTitle>TracePML</AssemblyTitle>
+    <!-- Convention wipiSoft : ModuleService = app headless invocable par un host
+         (ModuloSlot, futur wipiTools, etc.). Le post-build des targets unifiés copie
+         l'exe + dépendances vers C:\_wipiSoft\Apps\Modules\TracePML\. -->
+    <WipiModuleKind>ModuleService</WipiModuleKind>
+    <WipiModuleName>TracePML</WipiModuleName>
+    <WipiModuleVersion>1.0</WipiModuleVersion>
+    <!-- LGO compatibles. Format MSBuild standard : valeurs séparées par ';'.
+         Lu côté host par WpsModuleDiscovery → WpsDiscoveredModule.LGO (string[]). -->
+    <LGO>Winpharma</LGO>
   </PropertyGroup>
 
   <ItemGroup>
     <Resource Include="Assets\tracepml.ico" />
+    <!-- Description.md embarquée dans le PE → lue côté host par WpsModuleMetadata
+         pour affichage dans la pageslot du service (panneau Services). -->
+    <EmbeddedResource Include="Description.md" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,8 +37,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\..\_libs\WpsXamlAdjust.cs" Link="Helpers\WpsXamlAdjust.cs" />
-    <Compile Include="..\..\..\_libs\WpsDebugSender.cs" Link="Helpers\WpsDebugSender.cs" />
+    <ProjectReference Include="..\..\..\_libs\Wps.ModuleService.Sdk\Wps.ModuleService.Sdk.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <!-- WpsXamlAdjust : éditeur runtime XAML (Debug only). -->
+    <Compile Include="..\..\..\_libs\WpsXamlAdjust.cs" Link="Helpers\WpsXamlAdjust.cs" />
+    <!-- WpsDebugSender est fourni transitivement par Wps.Module.Sdk.Core (référencé
+         par Wps.ModuleService.Sdk). Pas de Compile Include redondant ici. -->
+  </ItemGroup>
+
+  <!-- Auto-deploy post-build vers C:\_wipiSoft\Apps\Modules\TracePML\ + injection
+       AssemblyMetadata WipiModuleKind/Name/Version pour la Discovery côté host. -->
+  <Import Project="..\..\..\_libs\Wps.ModuleService.Sdk\Wps.ModuleService.Sdk.targets" />
 
 </Project>

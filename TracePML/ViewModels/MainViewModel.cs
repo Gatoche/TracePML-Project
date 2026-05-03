@@ -17,6 +17,23 @@ public class MainViewModel : INotifyPropertyChanged, IDisposable
     private readonly PmlFileMonitor _monitor;
     private readonly ToastService _toastService;
 
+    // ====== État exposé via Invoke (mode embedded ModuleService) ======
+    private bool _isMonitoringActive;
+    private OrderNotification? _lastNotification;
+    private DateTime? _lastNotificationAtUtc;
+
+    /// <summary>Chemin actuellement surveillé (selon LocalTest ou prod WinPharma).</summary>
+    public string MonitoringFilePath => IsLocalTest ? "pml.log" : PathPmlWinpharma;
+
+    /// <summary>True quand le FileSystemWatcher est actif (entre Start et Stop).</summary>
+    public bool IsMonitoringActive => _isMonitoringActive;
+
+    /// <summary>Dernière OrderNotification émise (null tant qu'aucune).</summary>
+    public OrderNotification? LastNotification => _lastNotification;
+
+    /// <summary>Horodatage UTC de la dernière notification émise.</summary>
+    public DateTime? LastNotificationAtUtc => _lastNotificationAtUtc;
+
     private string _pmlLogText = "";
     private string _notificationLogText = "";
     private bool _isTestMode;
@@ -174,10 +191,12 @@ public class MainViewModel : INotifyPropertyChanged, IDisposable
         if (!_isTestMode && File.Exists(PathPmlWinpharma))
         {
             _monitor.Start(PathPmlWinpharma);
+            _isMonitoringActive = true;
             DiagLog($"[MONITOR] Demarrage surveillance: {PathPmlWinpharma}");
         }
         else
         {
+            _isMonitoringActive = false;
             DiagLog($"[MONITOR] Non demarre - TestMode={_isTestMode}, Existe={File.Exists(PathPmlWinpharma)}");
         }
     }
@@ -185,6 +204,7 @@ public class MainViewModel : INotifyPropertyChanged, IDisposable
     public void StopMonitoring()
     {
         _monitor.Stop();
+        _isMonitoringActive = false;
     }
 
     private void OnNewContent(string content)
@@ -275,6 +295,9 @@ public class MainViewModel : INotifyPropertyChanged, IDisposable
     {
         _toastService.ShowNotification(notif);
         ToastLogText += $"[{DateTime.Now:HH:mm:ss}] {notif.Status} - {notif.Title} - {notif.Detail}{Environment.NewLine}";
+        // Stockage pour exposition via Invoke "GetLastNotification" (mode embedded).
+        _lastNotification = notif;
+        _lastNotificationAtUtc = DateTime.UtcNow;
     }
 
     public static Action<string>? FileLog;

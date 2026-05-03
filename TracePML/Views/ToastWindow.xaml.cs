@@ -24,8 +24,9 @@ public partial class ToastWindow : Window
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
-        var screenWidth = SystemParameters.WorkArea.Width;
-        Left = 10; // Aligné à gauche
+        // Centré horizontalement sur la work area du moniteur primaire (= écran moins taskbar).
+        // Top négatif puis SlideIn anime vers Top=10 → slide-in depuis le haut.
+        Left = (SystemParameters.WorkArea.Width - ActualWidth) / 2;
         Top = -ActualHeight;
         Opacity = 0;
         SlideIn();
