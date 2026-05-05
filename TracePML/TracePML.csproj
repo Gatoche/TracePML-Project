@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\_libs\Wps.ModuleService.Sdk\Wps.ModuleService.Sdk.csproj" />
+    <ProjectReference Include="..\..\..\_SDKs\Modules\Wps.ModuleService.Sdk\Wps.ModuleService.Sdk.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +49,6 @@
 
   <!-- Auto-deploy post-build vers C:\_wipiSoft\Apps\Modules\TracePML\ + injection
        AssemblyMetadata WipiModuleKind/Name/Version pour la Discovery côté host. -->
-  <Import Project="..\..\..\_libs\Wps.ModuleService.Sdk\Wps.ModuleService.Sdk.targets" />
+  <Import Project="..\..\..\_SDKs\Modules\Wps.ModuleService.Sdk\Wps.ModuleService.Sdk.targets" />
 
 </Project>
